@@ -1,0 +1,47 @@
+
+import os
+import re
+part=os.getcwd()
+# print(part)
+h=os.listdir()
+
+for i in h:
+    ll=0
+    if '.py' in i:
+        file=i
+        print(i)
+        f = open(i, 'r')
+        l=f.readlines()
+        f.close()
+        ed=""
+        ll=len(l)
+        ch=""
+        # print(ll)
+        for i in range(ll+1):
+            n=i
+            
+            line=l[n-1].rstrip('\n')
+            # print(line)
+            ed=ed+line+'\n'
+            split_text = re.split(r'\n#%%', ed)
+        write1 = open(file, 'w')
+        for block in split_text:
+            if "def insert_partition_macrofunc(cxt)" in block:
+                
+                continue
+            elif "rcset_macrofunc" in block:
+                aa=block.replace(block,('''#%%'''+'\n'+'insert_partition_macrofunc(cxt)'))
+                # print(aa)
+                l4=write1.write(aa)
+                
+                
+            else :
+                # print('''#%%'''+'\n'+block)
+                # pass
+                l4=write1.write('''#%%'''+'\n'+block)
+
+        
+        _syslast_
+
+
+work_w28u3iw.write.format("hive").mode('append').saveAsTable(f"{splice_db_silver}.COUNTERPARTY_LA_BEF_KOR")
